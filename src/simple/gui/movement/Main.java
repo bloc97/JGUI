@@ -17,7 +17,7 @@ public class Main {
     
     static JFrame GUI;
     static JPanel PANEL;
-    static float SPEED = 0.0002F;
+    static float SPEED = 0.0008F;
     //static ArrayList<Object> objects;
     
     public static void initObjects(ArrayList<Object> objects){
@@ -64,9 +64,10 @@ public class Main {
             player.updateInput();
             player.updateObjectDisplay();
             
-            test1.setPosx(random.nextInt(50));
+            test1.setPosx(random.nextInt(400));
+            test1.setPosy(random.nextInt(400));
         
-            
+            updateObjects(objects);
         
         }
     }

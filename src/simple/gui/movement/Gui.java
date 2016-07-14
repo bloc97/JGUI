@@ -6,7 +6,7 @@
 package simple.gui.movement;
 
 import java.awt.Color;
-import java.awt.Graphics;
+//import java.awt.Graphics;
 import javax.swing.*;
 
 /**
@@ -17,7 +17,7 @@ public class Gui extends JPanel {
 
     
     public static JFrame initGUI(){ 
-         JFrame frame = new JFrame("Plotter"); 
+         JFrame frame = new JFrame("Movement GUI"); 
          frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
          return frame; 
      } 
