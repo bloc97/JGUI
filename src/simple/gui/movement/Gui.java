@@ -37,16 +37,18 @@ public class Gui extends JPanel {
          frame.setVisible(true);    
      } 
     
-    public static JLabel newLabel(JPanel panel, String text){
-        JLabel label = new JLabel(text);
-        return label;
+    public static void newLabel(){
+        JLabel label = new JLabel();
+        Main.PANEL.add(label);
     }
     
-    public static JLabel newLabel(JPanel panel, String text, int xpos, int ypos){
+    public static void newLabel(String text, int xpos, int ypos){
         JLabel label = new JLabel(text);
         label.setLocation(xpos,ypos);
-        return label;
+        label.setSize(30, 30);
+        Main.PANEL.add(label);
     }
     
+
 
 }

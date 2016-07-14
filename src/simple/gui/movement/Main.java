@@ -21,10 +21,16 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        GUI = Gui.initGUI();
-        PANEL = Gui.initPanel();
+        Main.GUI = Gui.initGUI();
+        Main.PANEL = Gui.initPanel();
         
-        Gui.displayGUI(GUI, PANEL, 400, 400);
+        Object test1 = new Object(0, 0, false, "A");
+        Object test2 = new Object(72, 18, false, "B");
+        
+        test1.displayObject();
+        test2.displayObject();
+        
+        Gui.displayGUI(Main.GUI, Main.PANEL, 400, 400);
         
     }
     
