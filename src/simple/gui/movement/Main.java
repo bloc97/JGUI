@@ -17,8 +17,19 @@ public class Main {
     
     static JFrame GUI;
     static JPanel PANEL;
-    static float SPEED = 0.0008F;
+    static float SPEED = 0.0002F;
     //static ArrayList<Object> objects;
+    
+    public static void initObjects(ArrayList<Object> objects){
+        
+    }
+    
+    public static void updateObjects(ArrayList<Object> objects){
+        for (Object object: objects){
+            object.updateObjectDisplay();
+            }
+        
+    }
 
     /**
      * @param args the command line arguments
@@ -41,21 +52,21 @@ public class Main {
         Gui.displayGUI(Main.GUI, Main.PANEL, 400, 400);
         
         for (Object object: objects){
-            object.displayObject();
+            object.initObjectDisplay();
         }
-        player.displayObject();
+        
+        player.initObjectDisplay();
         Random random = new Random();
         
         
         while (true){
             
-        Input.updatePlayer(player);
+            player.updateInput();
+            player.updateObjectDisplay();
             
-        test1.setPosx(random.nextInt(50));
-        for (Object object: objects){
-            object.displayObjectUpdate();
-        }
-        player.displayObjectUpdate();
+            test1.setPosx(random.nextInt(50));
+        
+            
         
         }
     }

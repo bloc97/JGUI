@@ -6,6 +6,7 @@
 package simple.gui.movement;
 
 import jdk.nashorn.internal.runtime.JSType;
+import static simple.gui.movement.Main.SPEED;
 
 /**
  *
@@ -22,9 +23,25 @@ public class Player extends Object {
         this.isBox = false;
         this.text = text;
     }
+    
+    public void updateInput() {
+        if (Input.isWPressed()){
+            this.pposy=this.pposy-SPEED;
+        }
+        if (Input.isSPressed()){
+            this.pposy=this.pposy+SPEED;
+        }
+        if (Input.isAPressed()){
+            this.pposx=this.pposx-SPEED;
+        }
+        if (Input.isDPressed()){
+            this.pposx=this.pposx+SPEED;
+        }
+    }
   
+    
     @Override
-    public void displayObjectUpdate(){
+    public void updateObjectDisplay(){
         Gui.updateLabel(aLabel, (int)pposx, (int)pposy);
     }
 

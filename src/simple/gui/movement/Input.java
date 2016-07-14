@@ -12,7 +12,6 @@ package simple.gui.movement;
 import java.awt.KeyEventDispatcher;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyEvent;
-import static simple.gui.movement.Main.SPEED;
 
 public class Input {
     private static boolean wPressed = false;
@@ -37,21 +36,6 @@ public class Input {
     public static boolean isDPressed() {
         synchronized (Input.class) {
             return dPressed;
-        }
-    }
-    
-    public static void updatePlayer(Player player) {
-        if (Input.isWPressed()){
-            player.setPposy(player.getPposy()-SPEED);
-        }
-        if (Input.isSPressed()){
-            player.setPposy(player.getPposy()+SPEED);
-        }
-        if (Input.isAPressed()){
-            player.setPposx(player.getPposx()-SPEED);
-        }
-        if (Input.isDPressed()){
-            player.setPposx(player.getPposx()+SPEED);
         }
     }
 

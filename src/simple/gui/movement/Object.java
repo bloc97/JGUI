@@ -39,7 +39,7 @@ public class Object{
         this.text = text;
     }
     
-    public void displayObject(){
+    public void initObjectDisplay(){
         if (this.text!=null) { // Not yet created box label.
             this.aLabel=Gui.newLabel(this.text, this.posx, this.posy);
         }
@@ -49,11 +49,12 @@ public class Object{
         
     }
     
-    public void displayTranslatedObject(Player player){
-        Gui.newLabel(this.text, this.posx+player.posx, this.posx+player.posy);
-    }
+    //public void displayTranslatedObject(Player player){
+    //    Gui.newLabel(this.text, this.posx+player.posx, this.posx+player.posy);
+    //}
     
-    public void displayObjectUpdate(){
+    
+    public void updateObjectDisplay(){
         Gui.updateLabel(aLabel, posx, posy);
     }
     
