@@ -14,8 +14,8 @@ import javax.swing.JLabel;
  */
 public class Object{
     
-    int posx;
-    int posy;
+    float posx;
+    float posy;
     boolean isBox;
     String text;
     JLabel aLabel;
@@ -55,26 +55,26 @@ public class Object{
     
     
     public void updateObjectDisplay(){
-        Gui.updateLabel(aLabel, posx, posy);
+        Gui.updateLabel(aLabel, (int)posx, (int)posy);
     }
     
-    public void displayTranslatedObjectUpdate(Player player){
-        Gui.newLabel(this.text, this.posx+player.posx, this.posx+player.posy);
+    public void updateObjectDisplayTranslated(Player player){
+        Gui.updateLabel(this.aLabel, this.posx-player.posx, this.posy-player.posy);
     }
 
-    public int getPosx() {
+    public float getPosx() {
         return posx;
     }
 
-    public void setPosx(int posx) {
+    public void setPosx(float posx) {
         this.posx = posx;
     }
 
-    public int getPosy() {
+    public float getPosy() {
         return posy;
     }
 
-    public void setPosy(int posy) {
+    public void setPosy(float posy) {
         this.posy = posy;
     }
 

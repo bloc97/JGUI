@@ -5,7 +5,7 @@
  */
 package simple.gui.movement;
 
-import jdk.nashorn.internal.runtime.JSType;
+import javax.swing.JLabel;
 import static simple.gui.movement.Main.SPEED;
 
 /**
@@ -14,51 +14,29 @@ import static simple.gui.movement.Main.SPEED;
  */
 public class Player extends Object {
     
-    double pposx;
-    double pposy;
+    
 
-    public Player(double pposx, double pposy, String text) {
-        this.pposx = pposx;
-        this.pposy = pposy;
+    public Player(float posx, float posy, String text) {
+        this.posx = posx;
+        this.posy = posy;
         this.isBox = false;
         this.text = text;
     }
     
     public void updateInput() {
         if (Input.isWPressed()){
-            this.pposy=this.pposy-SPEED;
+            this.posy=this.posy-SPEED;
         }
         if (Input.isSPressed()){
-            this.pposy=this.pposy+SPEED;
+            this.posy=this.posy+SPEED;
         }
         if (Input.isAPressed()){
-            this.pposx=this.pposx-SPEED;
+            this.posx=this.posx-SPEED;
         }
         if (Input.isDPressed()){
-            this.pposx=this.pposx+SPEED;
+            this.posx=this.posx+SPEED;
         }
     }
-  
-    
-    @Override
-    public void updateObjectDisplay(){
-        Gui.updateLabel(aLabel, (int)pposx, (int)pposy);
-    }
 
-    public double getPposx() {
-        return pposx;
-    }
-
-    public void setPposx(double pposx) {
-        this.pposx = pposx;
-    }
-
-    public double getPposy() {
-        return pposy;
-    }
-
-    public void setPposy(double pposy) {
-        this.pposy = pposy;
-    }
     
 }

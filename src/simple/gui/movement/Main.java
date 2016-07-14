@@ -18,6 +18,7 @@ public class Main {
     static JFrame GUI;
     static JPanel PANEL;
     static float SPEED = 0.0008F;
+    static boolean FOLLOW = true;
     //static ArrayList<Object> objects;
     
     public static void initObjects(ArrayList<Object> objects){
@@ -27,6 +28,13 @@ public class Main {
     public static void updateObjects(ArrayList<Object> objects){
         for (Object object: objects){
             object.updateObjectDisplay();
+            }
+        
+    }
+    
+    public static void updateObjectsTranslated(ArrayList<Object> objects, Player player){
+        for (Object object: objects){
+            object.updateObjectDisplayTranslated(player);
             }
         
     }
@@ -43,33 +51,59 @@ public class Main {
         Main.PANEL = Gui.initPanel();
         
         Object test1 = new Object(0, 0, false, "A");
-        Object test2 = new Object(72, 18, false, "B");
-        Player player = new Player(200, 200, "[]");
-        
+        Object test2 = new Object(172, 18, false, "B");
+        Object test3 = new Object(22, 172, false, "C");
+        Object test4 = new Object(293, 118, false, "D");
         objects.add(test1);
         objects.add(test2);
+        objects.add(test3);
+        objects.add(test4);
         
-        Gui.displayGUI(Main.GUI, Main.PANEL, 400, 400);
-        
-        for (Object object: objects){
-            object.initObjectDisplay();
-        }
-        
-        player.initObjectDisplay();
         Random random = new Random();
         
+        if (Main.FOLLOW==false){
+            Player player = new Player(200, 200, "[ ]");
+            player.initObjectDisplay();
         
-        while (true){
-            
-            player.updateInput();
-            player.updateObjectDisplay();
-            
-            test1.setPosx(random.nextInt(400));
-            test1.setPosy(random.nextInt(400));
+            Gui.displayGUI(Main.GUI, Main.PANEL, 400, 400);
         
-            updateObjects(objects);
+            for (Object object: objects){
+                object.initObjectDisplay();
+            }
+        
+            while (true){
+                player.updateInput();
+            
+                test1.setPosx(test1.getPosx()+(random.nextFloat()-0.5F)*0.1F);
+                test1.setPosy(test1.getPosy()+(random.nextFloat()-0.5F)*0.1F);
+                updateObjects(objects);
+                player.updateObjectDisplay();
+            }
+        
         
         }
+        
+        else{
+            Player player = new Player(0, 0, "[]");
+            Immobile iplayer = new Immobile(200, 200, "[ ]");
+            iplayer.initObjectDisplay();
+            
+            Gui.displayGUI(Main.GUI, Main.PANEL, 400, 400);
+        
+            for (Object object: objects){
+                object.initObjectDisplay();
+                }
+            
+            while (true){
+                player.updateInput();
+            
+                test1.setPosx(test1.getPosx()+(random.nextFloat()-0.5F)*0.1F);
+                test1.setPosy(test1.getPosy()+(random.nextFloat()-0.5F)*0.1F);
+                updateObjectsTranslated(objects, player); 
+            }
+            
+        }
+        
     }
     
 }

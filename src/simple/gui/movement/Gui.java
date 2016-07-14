@@ -42,16 +42,16 @@ public class Gui extends JPanel {
         Main.PANEL.add(label);
     }
     
-    public static JLabel newLabel(String text, int xpos, int ypos){
+    public static JLabel newLabel(String text, float xpos, float ypos){
         JLabel label = new JLabel(text);
-        label.setLocation(xpos,ypos);
+        label.setLocation((int)xpos, (int)ypos);
         label.setSize(30, 30);
         Main.PANEL.add(label);
         return label;
     }
     
-    public static void updateLabel(JLabel label, int xpos, int ypos){
-        label.setLocation(xpos, ypos);
+    public static void updateLabel(JLabel label, float xpos, float ypos){
+        label.setLocation((int)xpos, (int)ypos);
     }
     
 
