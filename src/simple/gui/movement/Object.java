@@ -5,6 +5,8 @@
  */
 package simple.gui.movement;
 
+import javax.swing.JLabel;
+
 
 /**
  *
@@ -16,6 +18,7 @@ public class Object{
     int posy;
     boolean isBox;
     String text;
+    JLabel aLabel;
     
     public Object(){
         this.posx=0;
@@ -38,7 +41,7 @@ public class Object{
     
     public void displayObject(){
         if (this.text!=null) { // Not yet created box label.
-            Gui.newLabel(this.text, this.posx, this.posx);
+            this.aLabel=Gui.newLabel(this.text, this.posx, this.posy);
         }
         else{
             Gui.newLabel();
@@ -47,6 +50,14 @@ public class Object{
     }
     
     public void displayTranslatedObject(Player player){
+        Gui.newLabel(this.text, this.posx+player.posx, this.posx+player.posy);
+    }
+    
+    public void displayObjectUpdate(){
+        Gui.updateLabel(aLabel, posx, posy);
+    }
+    
+    public void displayTranslatedObjectUpdate(Player player){
         Gui.newLabel(this.text, this.posx+player.posx, this.posx+player.posy);
     }
 
