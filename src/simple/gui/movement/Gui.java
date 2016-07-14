@@ -6,6 +6,7 @@
 package simple.gui.movement;
 
 import java.awt.Color;
+import java.awt.Graphics;
 import javax.swing.*;
 
 /**
@@ -38,7 +39,6 @@ public class Gui extends JPanel {
     
     public static JLabel newLabel(JPanel panel, String text){
         JLabel label = new JLabel(text);
-        
         return label;
     }
     
@@ -47,5 +47,6 @@ public class Gui extends JPanel {
         label.setLocation(xpos,ypos);
         return label;
     }
+    
 
 }

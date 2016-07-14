@@ -15,21 +15,41 @@ public class Object{
     int posx;
     int posy;
     boolean isBox;
+    String text;
+    
+    public Object(){
+        this.posx=0;
+        this.posy=0;
+        this.isBox=false;
+        this.text="";
+    }
     
     public Object(int posx, int posy) {
         this.posx=posx;
         this.posy=posy;
         this.isBox=false;
+        this.text="";
     }
 
-    public Object(int posx, int posy, boolean isBox) {
+    public Object(int posx, int posy, boolean isBox, String text) {
         this.posx = posx;
         this.posy = posy;
         this.isBox = isBox;
+        this.text = text;
     }
     
-    public void displayObject(Object object){
-        Gui.newLabel(Main.PANEL, text, posx, posx);
+    public void displayObject(){
+        if (this.isBox) { // Not yet created box label.
+            Gui.newLabel(Main.PANEL, this.text, this.posx, this.posx);
+        }
+        else{
+            Gui.newLabel(Main.PANEL, this.text, this.posx, this.posx);
+        }
+        
+    }
+    
+    public void displayTranslatedObject(Player player){
+        Gui.newLabel(Main.PANEL, this.text, this.posx+player.posx, this.posx+player.posy);
     }
 
     public int getPosx() {
